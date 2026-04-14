@@ -1,0 +1,149 @@
+/*
+  Improved responsive SCSS + compiled CSS for CartItem component.
+  - Paste the compiled CSS into cartitem.css if you don't use a preprocessor.
+  - Mobile behavior: table switches to stacked "card" rows for small screens;
+    table horizontal scroll removed and layout becomes readable.
+*/
+
+/* ===================== SCSS (nested, improved responsive) ===================== */
+.cartitem {
+  padding: 2.5rem 1rem;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  color: #0f1720;
+  box-sizing: border-box;
+   background: linear-gradient(135deg, #58dfe4, #e3e3e3);
+
+  h1{
+    text-align: center;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    margin: 1.5rem 0;
+    color: #00b7d4; /* aqua theme */
+    text-shadow: 0 0 6px rgba(0,183,212,0.12);
+    margin-top: 80px;
+  }
+
+  .container {
+    background: #c2edf3;
+    border: solid 1px #1a8cf7;
+    box-shadow: 1px 0px 15px #181616;
+    width: min(1100px, 96%);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 8px 30px rgba(2,6,23,0.06);
+    overflow: hidden;
+    justify-content: center;
+    margin-left: 5%;
+    /* Make table horizontally scrollable only when necessary (graceful fallback)
+       but we will also provide a stacked-card view for very small screens. */
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 680px; /* keeps desktop layout when space allows */
+    }
+
+    thead {
+      background: linear-gradient(90deg, rgba(0,234,255,0.06), rgba(0,183,212,0.04));
+
+      th {
+        text-align: left;
+        padding: 12px 14px;
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: #084c57;
+        border-bottom: 1px solid rgba(3,232,254,0.12);
+        vertical-align: middle;
+        white-space: nowrap;
+      }
+    }
+
+    tbody {
+      tr {
+        transition: background 0.18s ease, transform 0.18s ease;
+
+        &:hover { background: rgba(0,183,212,0.03); transform: translateY(-2px); }
+
+        td {
+          padding: 12px 10px;
+          vertical-align: middle;
+          border-bottom: 1px solid rgba(15,23,32,0.04);
+          font-size: 0.95rem;
+          color: #102027;
+          vertical-align: middle;
+
+          img { width: 72px; height: 72px; object-fit: cover; border-radius: 8px; }
+
+          button {
+            display: inline-block;
+            padding: 0.45rem 0.8rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            background: linear-gradient(135deg,#00eaff,#00b7d4);
+            color: #fff;
+            transition: transform 0.12s ease, box-shadow 0.12s ease;
+          }
+        }
+      }
+    }
+
+    /* ==== Responsive: stacked-card list below 720px ==== */
+    @media (max-width: 720px) {
+      .table-wrap { overflow-x: visible; }
+    
+
+      table {
+        min-width: 100%;
+      }
+
+      thead { display: none; } /* hide the header on small screens */
+
+      tbody {
+        tr {
+          display: block;
+          margin: 0.6rem 0;
+          padding: 0.8rem;
+          background: linear-gradient(180deg, rgba(0,234,255,0.03), rgba(0,183,212,0.02));
+          border-radius: 10px;
+          box-shadow: 0 6px 18px rgba(2,6,23,0.04);
+          border: 1px solid rgba(3,232,254,0.06);
+
+          td {
+            display: flex;
+            gap: 0.8rem;
+            align-items: center;
+            padding: 8px 6px;
+            border: none;
+          }
+
+          /* Layout: image | details stacked vertically on very narrow screens */
+          td.img-cell { flex: 0 0 80px; }
+          td.details { flex: 1 1 auto; display: flex; flex-direction: column; gap: 6px; }
+          td.actions { flex: 0 0 auto; }
+
+          img { width: 80px; height: 80px; border-radius: 8px; }
+
+          button { width: 100%; padding: 0.6rem 0.75rem; }
+        }
+      }
+    }
+
+    /* Tweak for very small phones */
+    @media (max-width: 380px) {
+      .container { padding: 0.6rem; }
+      tbody tr { padding: 0.6rem; }
+      td.img-cell { flex: 0 0 64px; }
+      img { width: 64px; height: 64px; }
+      h1 { font-size: 1.6rem; }
+    }
+  }
+}
+

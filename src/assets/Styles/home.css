@@ -1,0 +1,158 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+.home {
+  width: 100%;
+  height: 100vh;
+  /* background: url("https://static.vecteezy.com/ti/vetor-gratis/t2/3794792-icone-carrinho-de-compras-feito-com-simbolos-de-moeda-comercio-tecnologia-conceito-internet-compras-online-compra-dolar-euro-iene-e-libra-icones-fundo-com-sinais-de-moeda-ilustracaoial-vetor.jpg") no-repeat center center/cover; */
+   background: url("https://static.vecteezy.com/system/resources/thumbnails/024/689/018/small/digital-wallet-wallet-in-smartphone-icon-made-with-currency-symbols-mobile-banking-e-commerce-finance-banner-dollar-euro-yen-and-pound-icons-background-with-currency-signs-illustration-vector.jpg") no-repeat center center/cover; 
+  background-size: 100vw 100vh;
+  box-sizing: border-box;
+  left: 0;
+  display: relative;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-content {
+  text-align: center;
+  color: white;
+}
+
+.home-content h1 {
+  font-family: cursive;
+  font-size: 60px;
+  font-weight: 800;
+  letter-spacing: 2px;
+   text-shadow: 1px 1px 10px rgba(15, 157, 240, 0.815);
+}
+
+.app-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.im {
+  width: 191px;
+  height: 63px;
+  transition: transform 0.3s ease;
+  padding: 8px;
+}
+
+.im:hover {
+  transform: scale(1.1);
+}
+
+
+.about-section {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #111;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+  box-sizing: border-box;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 1100px;
+  gap: 40px;
+}
+
+.about-text {
+  flex: 1 1 400px;
+}
+
+.about-text h2 {
+  font-size: 40px;
+  font-family: cursive;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #ddd;
+}
+
+.learn-more-btn {
+  background-color: #e63946;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100px;
+  height: 60px;
+
+}
+
+.learn-more-btn:hover {
+  background-color: #c71c2f;
+  transform: scale(1.1);
+}
+
+.about-image img {
+  width: 450px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Extra section below the home banner */
+.home-extra {
+  width: 100%;
+  padding: 40px 20px;
+  text-align: center;
+  background: #f8f8f8;
+}
+
+.home-extra h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.home-extra p {
+  font-size: 16px;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto 30px auto;
+  line-height: 1.6;
+}
+
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  background: white;
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+}

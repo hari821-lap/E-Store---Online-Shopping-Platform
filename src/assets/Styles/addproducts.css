@@ -1,0 +1,136 @@
+/* addproducts.scss — improved nested SCSS */
+:root {
+  --bg-hero: linear-gradient(135deg,#0b3a57 0%, #073851 100%);
+  --accent: #00b7d4;
+  --accent-dark: #0093b0;
+  --muted: #6b7280;
+  --card-bg: #ffffff;
+  --input-bg: rgba(255,255,255,0.03);
+}
+
+.addproducts {
+  width: 100%;
+  min-height: 100vh;
+  padding: 40px 16px;
+  background: var(--bg-hero);
+  box-sizing: border-box;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    margin-top: 48px;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 800;
+    color: #fff;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    text-shadow: 0 0 10px rgba(43,161,240,0.35), 0 0 20px rgba(21,144,201,0.18);
+  }
+
+  .container {
+    width: 100%;
+    max-width: 720px;        /* responsive max width */
+    min-height: 60vh;
+    margin: 32px auto;
+    background: rgba(255,255,255,0.04); /* subtle card on dark hero */
+    border-radius: 14px;
+    padding: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(2,6,23,0.35);
+    backdrop-filter: blur(6px);
+  }
+
+  .inputs {
+    width: 100%;
+    max-width: 560px;
+    text-align: left;
+    display: block;
+
+    /* base for input/select */
+    input, select, textarea {
+      width: 100%;
+      box-sizing: border-box;
+      border: none;
+      background: transparent;
+      padding: 14px 12px;
+      margin: 10px 0;
+      font-size: 1rem;
+      color: #fff;
+      border-radius: 8px;
+      outline: none;
+      transition: box-shadow .18s ease, border-color .18s ease, transform .12s ease;
+    }
+
+    /* single underline style */
+    input, select {
+      border-bottom: 2px solid rgba(255,255,255,0.12);
+      background: transparent;
+      padding-left: 0;
+      padding-right: 0;
+      border-radius: 0;
+    }
+
+    /* placeholder color */
+    input::placeholder, textarea::placeholder {
+      color: rgba(255,255,255,0.65);
+    }
+
+    /* focus state */
+    input:focus, select:focus, textarea:focus {
+      border-bottom-color: var(--accent);
+      box-shadow: 0 6px 20px rgba(0,183,212,0.06);
+      transform: translateY(-2px);
+    }
+
+    /* special small tweaks */
+    .inline-row {
+      display: flex;
+      gap: 10px;
+
+      input { flex: 1; }
+    }
+    select:focus{
+         color: rgb(8, 158, 228)
+    }
+    select{
+        color: rgb(233, 236, 238)
+        ;
+    }
+
+    /* submit / add button */
+    .add {
+      display: inline-block;
+      margin: 18px 0 6px 0;
+      padding: 12px 18px;
+      color: #082229;
+      background: linear-gradient(90deg, #cfeff6, #eaf8fb);
+      border-radius: 12px;
+      border: none;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(2,6,23,0.08);
+      transition: transform .12s ease, box-shadow .12s ease;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 28px rgba(2,6,23,0.12);
+      }
+
+      &:active {
+        transform: translateY(-1px);
+        opacity: 0.98;
+      }
+    }
+  } /* .inputs */
+
+  /* small-screen adjustments */
+  @media (max-width: 760px) {
+    .container { padding: 18px; margin: 18px 12px; min-height: auto; }
+    .inputs { max-width: 100%; }
+    .inputs .add { width: 100%; text-align: center; }
+  }
+}
