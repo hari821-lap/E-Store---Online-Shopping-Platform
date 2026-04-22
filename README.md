@@ -1,16 +1,81 @@
-# React + Vite
+# E-Store Online Shopping Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Live Demo
 
-Currently, two official plugins are available:
+https://e-store-online-shopping-platform.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Project Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The E-Store Online Shopping Platform is a frontend web application that provides a simple and smooth online shopping experience. Users can browse products, view details, and manage items in the cart.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Features
+
+* Product Listing and Details
+* Add to Cart and Remove from Cart
+* Basic Cart Management
+* Responsive User Interface
+
+---
+
+## Tech Stack
+
+### Frontend:
+
+* React.js
+* HTML5
+* CSS3
+* JavaScript
+
+### Data Handling:
+
+* JSON (used for storing and displaying product data)
+
+---
+
+## Installation & Setup
+
+### 1. Clone the repository
+
+```bash id="k29d8x"
+git clone https://github.com/your-username/e-store.git
+cd e-store
+```
+
+### 2. Setup Frontend
+
+```bash id="a1z7qp"
+npm install
+npm start
+```
+
+
+
+## Future Enhancements
+
+* Backend Integration (Java / Node.js)
+* User Authentication
+* Payment Integration
+* Order Management System
+
+---
+
+## Author
+
+Hari Murugesan
+
+---
+
+## Contact
+
+* Email: okhari821@gmail.com
+* LinkedIn: https://www.linkedin.com/in/hari-m-748145296/
+
+---
+
+## Note
+
+This project demonstrates a frontend e-commerce application built using React with JSON-based data handling.
