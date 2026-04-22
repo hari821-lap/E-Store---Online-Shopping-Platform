@@ -1,16 +1,16 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import '../../assets/Styles/cartitem.css'
+import productsData from '../../data/storedata.json'
 
 const CartItem = () => {
 
     let [cardItem, setCartItem] = useState([])
     let fetchCart = async () => {
-        let apifetch = await axios.get(`http://localhost:4000/carditem`)
-        setCartItem(apifetch.data)
-
-
+        // let apifetch = await axios.get(`http://localhost:4000/carditem`)
+        setCartItem(productsData.carditem)
     }
+
     useEffect(() => {
         fetchCart()
 
@@ -35,7 +35,7 @@ const CartItem = () => {
                     <table>
                         <tr>
                             <thead>
-                                
+
                             </thead>
                         </tr>
                         <tbody>

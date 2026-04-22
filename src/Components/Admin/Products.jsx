@@ -2,13 +2,14 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import '../../assets/Styles/products.css'
 import { useNavigate } from 'react-router-dom'
+import productsData from '../../data/storedata.json'
 
 const Products = () => {
   let [products, setProduct] = useState([])
   let navigate = useNavigate()
   let fetchApi = async () => {
-    let apidata = await axios.get("http://localhost:4000/products")
-    await setProduct(apidata.data)
+    // let apidata = await axios.get("http://localhost:4000/products")
+    await setProduct(productsData.products)
   }
 
   useEffect(() => {
