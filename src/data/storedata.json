@@ -243,18 +243,6 @@
   ],
   "carditem": [
     {
-      "id": "18",
-      "title": "MBJ Women's Solid Short Sleeve Boat Neck V ",
-      "price": 9.85,
-      "description": "95% RAYON 5% SPANDEX, Made in USA or Imported, Do Not Bleach, Lightweight fabric with great stretch for comfort, Ribbed on sleeves and neckline / Double stitching on bottom hem",
-      "category": "women's clothing",
-      "image": "https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_t.png",
-      "rating": {
-        "rate": 4.7,
-        "count": 130
-      }
-    },
-    {
       "id": "20f1",
       "title": "tshirt",
       "price": "43",
@@ -267,7 +255,7 @@
       }
     },
     {
-      "id": "4",
+      "id": "9tqAdZLoaco",
       "title": "Mens Casual Slim Fit",
       "price": 15.99,
       "description": "The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.",
@@ -277,6 +265,19 @@
         "rate": 2.1,
         "count": 430
       }
+    },
+    {
+      "id": "WJlsVi9FuAg",
+      "title": "WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive",
+      "price": 114,
+      "description": "Expand your PS4 gaming experience, Play anywhere Fast and easy, setup Sleek design with high capacity, 3-year manufacturer's limited warranty",
+      "category": "electronics",
+      "image": "https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_t.png",
+      "rating": {
+        "rate": 4.8,
+        "count": 400
+      }
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
