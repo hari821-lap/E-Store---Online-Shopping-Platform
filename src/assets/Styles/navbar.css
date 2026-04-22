@@ -15,14 +15,16 @@
 }
 
 .logo {
-  width: 50%;
+ 
   display: flex;
   align-items: center;
 }
 
 .logo img {
-  width: 120px;
-  height: 10vh;
+  display: flex;
+ width: 100px;
+ height: 7vh;
+
 }
 
 .links {
