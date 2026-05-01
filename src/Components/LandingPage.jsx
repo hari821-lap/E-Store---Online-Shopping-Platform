@@ -47,6 +47,7 @@ const LandingPage = () => {
       <div className="landingpage">
         <div className="bgImage">
           <div className="container">
+          <p > Use the following demo credentials to log in: email:"Admin@gmail.com",password:"admin123"</p>
             <div className="left">
               <h1>welcome to the Online Shopping</h1>
               <div className="formbox">
