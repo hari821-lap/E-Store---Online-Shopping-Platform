@@ -20,7 +20,7 @@
     text-align: center;
     font-size: clamp(1.6rem, 4vw, 2.4rem);
     margin: 1.5rem 0;
-    color: #00b7d4; /* aqua theme */
+    color: #00b7d4; /* aqua theme */ 
     text-shadow: 0 0 6px rgba(0,183,212,0.12);
     margin-top: 80px;
   }
