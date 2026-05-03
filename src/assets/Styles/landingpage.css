@@ -42,7 +42,7 @@
       }
 
       .left {
-        flex: 1 1 420px; /* flexible: min 420px, grow as needed */
+        
         min-width: 280px;
         display: flex;
         flex-direction: column;
