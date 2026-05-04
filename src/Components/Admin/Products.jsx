@@ -1,15 +1,13 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import '../../assets/Styles/products.css'
 import { useNavigate } from 'react-router-dom'
-import productsData from '../../data/storedata.json'
+import { getProducts, deleteProduct as removeProductFromStore } from '../../utils/localData'
 
 const Products = () => {
   let [products, setProduct] = useState([])
   let navigate = useNavigate()
-  let fetchApi = async () => {
-    // let apidata = await axios.get("http://localhost:4000/products")
-    await setProduct(productsData.products)
+  let fetchApi = () => {
+    setProduct(getProducts())
   }
 
   useEffect(() => {
@@ -21,14 +19,14 @@ const Products = () => {
     navigate(`/adminportal/viewcard/${id}`)
   }
 
-  let deleteProduct = async (id) => {
-    let bool = window.confirm('Do you want to delete....!')
+  let deleteProduct = (id) => {
+    let bool = window.confirm('Do you want to delete this product?')
     if (bool) {
-      await axios.delete(`http://localhost:4000/products/${id}`)
-      alert('Item is deleted')
-    }
-    else {
-      alert('Not deleted')
+      const updatedProducts = removeProductFromStore(id)
+      setProduct(updatedProducts)
+      alert('Item deleted')
+    } else {
+      alert('Item not deleted')
     }
   }
   return (
@@ -55,7 +53,7 @@ const Products = () => {
 
                 <div className="btns">
                   <button className='view' title='view more' onClick={() => { Viewmore(id) }}>View</button>
-                  <button className='delete' title='Delete' onClick={() => { deleteProduct(id) }}>Delete</button>
+                  <button className='edit' title='Edit' onClick={() => { navigate(`/adminportal/addproducts/${id}`) }}>Edit</button>
                 </div>
               </div>
 

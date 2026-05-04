@@ -1,46 +1,49 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import '../../assets/Styles/viewcard.css'
+import { getProductById, getCart, addCartItem } from '../../utils/localData'
 
 const ViewCard = () => {
 
-    
+
     let params = useParams()
     let productid = params.id
     let [card, setCard] = useState({});
     let Navigate = useNavigate()
 
-    let fetchApi = async () => {
-        let productData = await axios.get(`http://localhost:4000/products/${productid}`)
-        await setCard(productData.data)
+    let fetchApi = () => {
+        const productData = getProductById(productid)
+        setCard(productData || {})
     }
     useEffect(() => {
         fetchApi()
-    }, [])
+    }, [productid])
     // console.log(card)
 
-    let { id, title, price, image, rating, category, description} = card
+    let { id, title, price, image, rating, category, description } = card
     console.log(card)
 
-    let addtoCard = async ()=>{
-        let bool =window.confirm("Do you want to add this product to cart....?")
-        if(bool){
-            axios.post(`http://localhost:4000/carditem`,card)
-            alert("succesfully added item to the card")
+    let addtoCard = () => {
+        let bool = window.confirm("Do you want to add this product to cart?")
+        if (bool) {
+            const existingCart = getCart()
+            const alreadyExists = existingCart.some((item) => item.id?.toString() === card.id?.toString())
+            if (alreadyExists) {
+                alert('This product is already in the cart')
+                return
+            }
+            addCartItem(card)
+            alert("Successfully added item to the cart")
+        } else {
+            alert("Item not added to the cart")
         }
-        else{
-            alert("item not added to the card")
-
-        }
-
     }
     return (
         <div className="viewcard">
             <div className="viewcard-card">
 
                 <div className="viewcard-left">
-                  
+
                     <img src={image} alt={title} />
                 </div>
 
@@ -49,7 +52,7 @@ const ViewCard = () => {
                     <div className="viewcard-price">₹ {price}</div>
 
                     <p>Rating: ⭐ {rating?.rate}</p>
-                      <p>Category: {category}</p>
+                    <p>Category: {category}</p>
                     <p className='desc'>{description}</p>
 
 

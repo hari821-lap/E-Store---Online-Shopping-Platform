@@ -1,9 +1,17 @@
 import React from 'react'
 import '../assets/Styles/navbar.css'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import HomeIcon from '@mui/icons-material/Home';
+import { resetToOriginal } from '../utils/localData'
 
 const Navbar = () => {
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    resetToOriginal()
+    navigate('/')
+  }
+
   return (
     <>
       <div className="navbar">
@@ -17,7 +25,7 @@ const Navbar = () => {
             <li><NavLink to="/adminportal/products">Products</NavLink></li>
             <li><NavLink to="/adminportal/carditems">Cart</NavLink></li>
             <li><NavLink to="/adminportal/addproducts">AddProducts</NavLink></li>
-            <li><NavLink to="/">LogOut</NavLink></li>
+            <li><button onClick={handleLogout} style={{ background: 'none', border: 'none', color: 'inherit', cursor: 'pointer' }}>LogOut</button></li>
           </ul>
         </div>
       </div>

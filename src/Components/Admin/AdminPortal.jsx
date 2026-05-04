@@ -11,16 +11,17 @@ import AddProducts from './AddProducts'
 const AdminPortal = () => {
   return (
     <>
-    <div>
-      <Navbar/>
-      <Routes>
-        
-        <Route element={<Home/>} path='/'></Route>
-        <Route element={<Products/>} path='/products'></Route>
-        <Route element={<CartItem/>}path='/carditems'></Route>
-        <Route element={<ViewCard/>} path='/viewcard/:id'></Route>
-        <Route element={<AddProducts /> }path='/addproducts'></Route>
-      </Routes>
+      <div>
+        <Navbar />
+        <Routes>
+
+          <Route element={<Home />} path='/'></Route>
+          <Route element={<Products />} path='/products'></Route>
+          <Route element={<CartItem />} path='/carditems'></Route>
+          <Route element={<ViewCard />} path='/viewcard/:id'></Route>
+          <Route element={<AddProducts />} path='/addproducts'></Route>
+          <Route element={<AddProducts />} path='/addproducts/:id'></Route>
+        </Routes>
       </div>
     </>
   )

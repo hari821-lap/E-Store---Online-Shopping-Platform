@@ -1,27 +1,25 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import '../../assets/Styles/cartitem.css'
-import productsData from '../../data/storedata.json'
+import { getCart, removeCartItem } from '../../utils/localData'
 
 const CartItem = () => {
 
     let [cardItem, setCartItem] = useState([])
-    let fetchCart = async () => {
-        // let apifetch = await axios.get(`http://localhost:4000/carditem`)
-        setCartItem(productsData.carditem)
+    let fetchCart = () => {
+        setCartItem(getCart())
     }
 
     useEffect(() => {
         fetchCart()
 
     }, [])
-    let handledelete = async (id) => {
-        let bool = window.confirm('Do you want to this product')
+    let handledelete = (id) => {
+        let bool = window.confirm('Do you want to delete this product?')
         if (bool) {
-            await axios.delete(`http://localhost:4000/carditem/${id}`)
-            alert('product deleted Succesfully')
-        }
-        else {
+            const updated = removeCartItem(id)
+            setCartItem(updated)
+            alert('Product deleted successfully')
+        } else {
             alert('Product not deleted')
         }
     }

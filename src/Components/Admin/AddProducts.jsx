@@ -1,23 +1,41 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../../assets/Styles/addproducts.css'
-import axios from 'axios'
-
-
+import { useNavigate, useParams } from 'react-router-dom'
+import { addProduct, getProductById, updateProduct } from '../../utils/localData'
 
 const AddProducts = () => {
 
+    const params = useParams()
+    const navigate = useNavigate()
     let [newproducts, setNewProducts] = useState({
+        id: "",
         title: "",
-        price: null,
+        price: "",
         description: "",
         category: "",
         image: "",
         rating: {
-            rate: null,
-            count: null
+            rate: "",
+            count: ""
         }
 
     })
+
+    useEffect(() => {
+        if (params.id) {
+            const existing = getProductById(params.id)
+            if (existing) {
+                setNewProducts({
+                    ...existing,
+                    price: existing.price?.toString() || "",
+                    rating: {
+                        rate: existing.rating?.rate?.toString() || "",
+                        count: existing.rating?.count?.toString() || ""
+                    }
+                })
+            }
+        }
+    }, [params.id])
 
     // let handleInput = (e) => {
     //     let keyName = e.target.name
@@ -50,17 +68,32 @@ const AddProducts = () => {
         }
     };
 
-    let handleSubmit = async () => {
-        let bool = window.confirm("Do you want to add this product to cart....?")
-        if (bool) {
-            axios.post(`http://localhost:4000/products`, newproducts)
-            alert("succesfully added new product")
-
+    let handleSubmit = (e) => {
+        e.preventDefault()
+        let bool = window.confirm(params.id ? "Do you want to save changes to this product?" : "Do you want to add this product?")
+        if (!bool) {
+            alert("Action cancelled")
+            return
         }
-        else {
-            alert("item not added to the card")
 
+        const preparedProduct = {
+            ...newproducts,
+            price: Number(newproducts.price) || newproducts.price,
+            rating: {
+                rate: Number(newproducts.rating.rate) || newproducts.rating.rate,
+                count: Number(newproducts.rating.count) || newproducts.rating.count
+            }
         }
+
+        if (params.id) {
+            updateProduct(preparedProduct)
+            alert('Product updated successfully')
+        } else {
+            addProduct(preparedProduct)
+            alert('Product added successfully')
+        }
+
+        navigate('/adminportal/products')
     }
 
 
@@ -127,7 +160,9 @@ const AddProducts = () => {
                             />
                             <br />
 
-                            <button className='add' onClick={handleSubmit} Styles="color=red">Add Product</button>
+                            <button className='add' onClick={handleSubmit} type='submit'>
+                                {params.id ? 'Update Product' : 'Add Product'}
+                            </button>
                         </div>
                     </form>
                 </div>
